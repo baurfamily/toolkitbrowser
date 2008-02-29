@@ -1,0 +1,13 @@
+{
+	Actions = {
+		// Define action descriptions here, for example
+		"refreshDisplay:" = id;
+	};
+	Outlets = {
+		// Define outlet descriptions here, for example
+		delegate = id;
+		datasource = id;
+	};
+    ClassName = SM2DGraphView; 
+    SuperClass = NSView; 
+}
