@@ -1,0 +1,59 @@
+//
+// Prefix header for all source files of the 'Eavesdrop' target in the 'Eavesdrop' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
+
+
+#define WARNINGS_ON /* allows warning messages to print to console */
+#define ERRORS_ON	/* allows error message to print to console - don't disable! */
+
+#define DEBUG_OFF	/* causes more message to print to console */
+#define INFO_OFF	/* causes way more messages to print to console */
+#define VERBOSE_OFF	/* causes data to be printed out as well */
+#define ENTRY_OFF	/* causes entry/exit message to print to console */
+
+#if defined(WARNINGS_ON)
+# define WARNING(string)		NSLog(string)
+#else
+# define WARNING(string)		/* no-op */
+#endif
+
+#if defined(ERRORS_ON)
+# define ERROR(string)		NSLog(string)
+#else
+# define ERROR(string)		/* no-op */
+#endif
+
+
+#if defined(DEBUG_ON)
+# define IFDEBUG(string)		NSLog(string)
+#else
+# define IFDEBUG(string)		/* no-op */
+#endif
+
+#if defined(DEBUG_ON)
+# define DEBUG(string)		NSLog(string)
+#else
+# define DEBUG(string)		/* no-op */
+#endif
+
+#if defined(INFO_ON)
+# define INFO(string)		NSLog(string)
+#else
+# define INFO(string)		/* no-op */
+#endif
+
+#if defined(VERBOSE_ON)
+# define VERBOSE(string)		NSLog(string)
+#else
+# define VERBOSE(string)		/* no-op */
+#endif
+
+#if defined(ENTRY_ON)
+# define ENTRY(string)		NSLog(string)
+#else
+# define ENTRY(string)		/* no-op */
+#endif

@@ -1,0 +1,61 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {refresh = id; }; 
+            CLASS = GraphController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                bandwidthGraphView = SM2DGraphView; 
+                pagesArrayController = NSArrayController; 
+                pieView = SMPieChartView; 
+                resourcesArrayController = NSArrayController; 
+                timesGraphView = SM2DGraphView; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {CLASS = NSLevelIndicator; LANGUAGE = ObjC; SUPERCLASS = NSControl; }, 
+        {CLASS = NSSegmentedControl; LANGUAGE = ObjC; SUPERCLASS = NSControl; }, 
+        {
+            CLASS = ResourceEvent; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {resourceRepresentation = id; }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            ACTIONS = {loadScript = id; nextStep = id; saveScript = id; toggleReplay = id; }; 
+            CLASS = TKReplayController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                replayArrayController = NSArrayController; 
+                replayTable = NSTableView; 
+                webDoc = TKWebDocument; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            ACTIONS = {addHistoryToReplay = id; go = id; }; 
+            CLASS = TKWebDocument; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                actionElementsArrayController = NSArrayController; 
+                actionsArrayController = NSArrayController; 
+                activityArrayController = NSArrayController; 
+                delegate = id; 
+                documentImageView = NSImageView; 
+                documentTabView = NSTabView; 
+                documentTextView = NSTextView; 
+                exclusionsArrayController = NSArrayController; 
+                pagesArrayController = NSArrayController; 
+                progressBar = NSProgressIndicator; 
+                replayArrayController = NSArrayController; 
+                resourceOutlineView = NSOutlineView; 
+                startingPageField = NSTextField; 
+                statusField = NSTextField; 
+                webView = WebView; 
+            }; 
+            SUPERCLASS = NSDocument; 
+        }
+    ); 
+    IBVersion = 1; 
+}
