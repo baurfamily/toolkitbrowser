@@ -67,6 +67,7 @@
 		pageArray = [[NSMutableArray alloc] init];
 		resourceArray = [[NSMutableArray alloc] init];
 		framesDict = [[NSMutableDictionary alloc] init];
+		requestsDict = [[NSMutableDictionary alloc] init];
 		//actionsArray = [[NSMutableArray alloc] init];
 	}
 	return self;
@@ -307,7 +308,7 @@
 		[tempDict setObject:tempObject forKey:@"httpBodyString"];
 	
 	if (tempObject = [[request URL] absoluteString])
-		[tempDict setObject:tempObject forKey:@"reqeuestURLString"];
+		[tempDict setObject:tempObject forKey:@"requestURLString"];
 		
 	if (tempObject = [[request mainDocumentURL] absoluteString])
 		[tempDict setObject:tempObject forKey:@"documentURLString"];
@@ -335,9 +336,9 @@
 			[tempDict setObject:@"-= Unknown =-" forKey:@"navigationString"];
 	}
 
-	//[actionsArrayController addObject:actionInformation];
-	//[actionElementsArrayController addObject:tempDict];
+	[actionsArrayController addObject:tempDict];
 	
+	[[requestsDict objectForKey:request] addActionDictionary:tempDict];
 	[currentPage addActionDictionary:tempDict];
 }
 /*
@@ -361,7 +362,7 @@
 	ResourceEvent *tempEvent = [ResourceEvent resourceEventWithURLRequest:request];
 	[currentPage addSubResourceEvent:tempEvent];
 	[activityArrayController addObject:tempEvent];
-
+	[requestsDict setObject:tempEvent forKey:request];
 
 	NSMutableDictionary *tempDict = [NSMutableDictionary dictionary];
 	[tempDict setObject:request forKey:@"NSURLRequest"];
@@ -379,8 +380,12 @@
 		
 	if (tempObject = [[request mainDocumentURL] absoluteString])
 		[tempDict setObject:tempObject forKey:@"documentURLString"];
-		
+	
+	//a made up action/navigation string
+	[tempDict setObject:@"Resource Request" forKey:@"navigationString"];
+
 	[actionsArrayController addObject:tempDict];
+	
 	return tempEvent;
 }
 
@@ -389,10 +394,32 @@
 	redirectResponse:(NSURLResponse *)redirectResponse
 	fromDataSource:(WebDataSource *)dataSource
 {
-	//may want to record the time any new requests were sent ???
-	//if (redirectResponse) {
-	//	NSLog( @"REQUEST:\n%@", [request allHTTPHeaderFields] );
-	//}
+	NSMutableDictionary *tempDict = [NSMutableDictionary dictionary];//WithDictionary:actionInformation];
+	
+	[tempDict setObject:request forKey:@"NSURLRequest"];
+	
+	id tempObject;
+		
+	//things from NSURLRequest
+	if (tempObject = [request HTTPMethod])
+		[tempDict setObject:tempObject forKey:@"httpMethod"];
+		
+	if (tempObject = [[NSString alloc] initWithData:[request HTTPBody] encoding:NSASCIIStringEncoding])
+		[tempDict setObject:tempObject forKey:@"httpBodyString"];
+	
+	if (tempObject = [[request URL] absoluteString])
+		[tempDict setObject:tempObject forKey:@"requestURLString"];
+		
+	if (tempObject = [[request mainDocumentURL] absoluteString])
+		[tempDict setObject:tempObject forKey:@"documentURLString"];
+	
+	//a made up action/navigation string
+	[tempDict setObject:@"Resource Request" forKey:@"navigationString"];
+	
+	[actionsArrayController addObject:tempDict];
+	
+	[identifier addActionDictionary:tempDict];
+
 	return request;
 }
 
@@ -484,8 +511,11 @@
 		];
 	}
 	[pagesArrayController setSelectedObjects:[NSArray arrayWithObject:item] ];
-	[resourcesArrayController setSelectedObjects:[NSArray arrayWithObject:item] ];
-	//selectedPage
+	//[resourcesArrayController setSelectedObjects:[NSArray arrayWithObject:item] ];
+
+	[self willChangeValueForKey:@"selectedItem"];
+	selectedItem = [item retain];
+	[self didChangeValueForKey:@"selectedItem"];
 	
 	return YES;
 }

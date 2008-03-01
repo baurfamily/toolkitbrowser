@@ -14,7 +14,7 @@
 			<key>CFBundleTypeIconFile</key>
 			<string></string>
 			<key>CFBundleTypeName</key>
-			<string>Web Tool Kit Document</string>
+			<string>Tool Kit Browser Document</string>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>NSDocumentClass</key>
@@ -22,11 +22,11 @@
 		</dict>
 	</array>
 	<key>CFBundleExecutable</key>
-	<string>Web Tool Kit</string>
+	<string>Tool Kit Browser</string>
 	<key>CFBundleIconFile</key>
 	<string>WebTools.icns</string>
 	<key>CFBundleIdentifier</key>
-	<string>net.baurhome.WebToolKit</string>
+	<string>net.baurhome.Tool Kit Browser</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundlePackageType</key>

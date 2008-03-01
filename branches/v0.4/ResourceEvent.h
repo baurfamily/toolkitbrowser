@@ -45,7 +45,7 @@ static unsigned int resourceIDcount;
 	id resourceRepresentation;
 	NSData *pageImageData;
 	
-	NSError *resourceError;
+	NSString *resourceErrorString;
 	
 	NSMutableArray *subResources;
 	NSMutableArray *actionsArray;
@@ -70,6 +70,9 @@ static unsigned int resourceIDcount;
 - (void)addActionDictionary:(NSDictionary *)actionDict;
 
 //accessor fuctions
+
+- (NSArray *)allActionsArray;
+
 - (void)setTitle:(NSString *)title;
 
 - (NSDate *)startDate;

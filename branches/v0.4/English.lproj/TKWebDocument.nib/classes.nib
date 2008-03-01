@@ -1,61 +1,95 @@
-{
-    IBClasses = (
-        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
-        {
-            ACTIONS = {refresh = id; }; 
-            CLASS = GraphController; 
-            LANGUAGE = ObjC; 
-            OUTLETS = {
-                bandwidthGraphView = SM2DGraphView; 
-                pagesArrayController = NSArrayController; 
-                pieView = SMPieChartView; 
-                resourcesArrayController = NSArrayController; 
-                timesGraphView = SM2DGraphView; 
-            }; 
-            SUPERCLASS = NSObject; 
-        }, 
-        {CLASS = NSLevelIndicator; LANGUAGE = ObjC; SUPERCLASS = NSControl; }, 
-        {CLASS = NSSegmentedControl; LANGUAGE = ObjC; SUPERCLASS = NSControl; }, 
-        {
-            CLASS = ResourceEvent; 
-            LANGUAGE = ObjC; 
-            OUTLETS = {resourceRepresentation = id; }; 
-            SUPERCLASS = NSObject; 
-        }, 
-        {
-            ACTIONS = {loadScript = id; nextStep = id; saveScript = id; toggleReplay = id; }; 
-            CLASS = TKReplayController; 
-            LANGUAGE = ObjC; 
-            OUTLETS = {
-                replayArrayController = NSArrayController; 
-                replayTable = NSTableView; 
-                webDoc = TKWebDocument; 
-            }; 
-            SUPERCLASS = NSObject; 
-        }, 
-        {
-            ACTIONS = {addHistoryToReplay = id; go = id; }; 
-            CLASS = TKWebDocument; 
-            LANGUAGE = ObjC; 
-            OUTLETS = {
-                actionsArrayController = NSArrayController; 
-                activityArrayController = NSArrayController; 
-                delegate = id; 
-                documentImageView = NSImageView; 
-                documentTabView = NSTabView; 
-                documentTextView = NSTextView; 
-                exclusionsArrayController = NSArrayController; 
-                pagesArrayController = NSArrayController; 
-                progressBar = NSProgressIndicator; 
-                replayArrayController = NSArrayController; 
-                resourceOutlineView = NSOutlineView; 
-                resourcesArrayController = NSArrayController; 
-                startingPageField = NSTextField; 
-                statusField = NSTextField; 
-                webView = WebView; 
-            }; 
-            SUPERCLASS = NSDocument; 
-        }
-    ); 
-    IBVersion = 1; 
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IBClasses</key>
+	<array>
+		<dict>
+			<key>ACTIONS</key>
+			<dict>
+				<key>addHistoryToReplay</key>
+				<string>id</string>
+				<key>go</key>
+				<string>id</string>
+			</dict>
+			<key>CLASS</key>
+			<string>TKWebDocument</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>OUTLETS</key>
+			<dict>
+				<key>actionsArrayController</key>
+				<string>NSArrayController</string>
+				<key>activityArrayController</key>
+				<string>NSArrayController</string>
+				<key>delegate</key>
+				<string>id</string>
+				<key>documentImageView</key>
+				<string>NSImageView</string>
+				<key>documentTabView</key>
+				<string>NSTabView</string>
+				<key>documentTextView</key>
+				<string>NSTextView</string>
+				<key>exclusionsArrayController</key>
+				<string>NSArrayController</string>
+				<key>pagesArrayController</key>
+				<string>NSArrayController</string>
+				<key>progressBar</key>
+				<string>NSProgressIndicator</string>
+				<key>replayArrayController</key>
+				<string>NSArrayController</string>
+				<key>resourceOutlineView</key>
+				<string>NSOutlineView</string>
+				<key>resourcesArrayController</key>
+				<string>NSArrayController</string>
+				<key>startingPageField</key>
+				<string>NSTextField</string>
+				<key>statusField</key>
+				<string>NSTextField</string>
+				<key>webView</key>
+				<string>WebView</string>
+			</dict>
+			<key>SUPERCLASS</key>
+			<string>NSDocument</string>
+		</dict>
+		<dict>
+			<key>CLASS</key>
+			<string>FirstResponder</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>SUPERCLASS</key>
+			<string>NSObject</string>
+		</dict>
+		<dict>
+			<key>ACTIONS</key>
+			<dict>
+				<key>loadScript</key>
+				<string>id</string>
+				<key>nextStep</key>
+				<string>id</string>
+				<key>saveScript</key>
+				<string>id</string>
+				<key>toggleReplay</key>
+				<string>id</string>
+			</dict>
+			<key>CLASS</key>
+			<string>TKReplayController</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>OUTLETS</key>
+			<dict>
+				<key>replayArrayController</key>
+				<string>NSArrayController</string>
+				<key>replayTable</key>
+				<string>NSTableView</string>
+				<key>webDoc</key>
+				<string>TKWebDocument</string>
+			</dict>
+			<key>SUPERCLASS</key>
+			<string>NSObject</string>
+		</dict>
+	</array>
+	<key>IBVersion</key>
+	<string>1</string>
+</dict>
+</plist>
