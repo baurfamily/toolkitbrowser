@@ -473,19 +473,20 @@
 	if ([item isImage]) {
 		[documentTabView selectTabViewItemWithIdentifier:@"graphics"];
 		[documentImageView setImage:[[[NSImage alloc] initWithData:[item data]] autorelease] ];
-		[pagesArrayController setSelectedObjects:[NSArray array] ];
 	} else if ([item isPage]) {
 		[documentTabView selectTabViewItemWithIdentifier:@"graphics"];
 		[documentImageView setImage:[item pageImage] ];
-		[pagesArrayController setSelectedObjects:[NSArray arrayWithObject:item] ];
 	} else {
 		[documentTabView selectTabViewItemWithIdentifier:@"text"];
 		[[documentTextView textStorage] 
 			replaceCharactersInRange:NSMakeRange(0,[[[documentTextView textStorage] string] length])
 			withAttributedString:[item dataAsAttributedString]
 		];
-		[pagesArrayController setSelectedObjects:[NSArray array] ];
 	}
+	[pagesArrayController setSelectedObjects:[NSArray arrayWithObject:item] ];
+	[resourcesArrayController setSelectedObjects:[NSArray arrayWithObject:item] ];
+	//selectedPage
+	
 	return YES;
 }
 
