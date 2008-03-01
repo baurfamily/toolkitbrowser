@@ -21,14 +21,7 @@
 	tempEvent = [[[ResourceEvent alloc] initWithResourceURLRequest:urlRequest] autorelease];
 	return tempEvent;
 }
-/*
-+ (id)resourceEventWithURLString:(NSString *)URLString
-{
-	ResourceEvent *tempEvent;
-	tempEvent = [[[ResourceEvent alloc] initWithResourceURLString:URLString] autorelease];
-	return tempEvent;
-}
-*/
+
 - (void)encodeWithCoder:(NSCoder *)encoder
 {
 	[encoder encodeInt32:resourceID forKey:@"resourceID"];
@@ -53,7 +46,7 @@
 		
 	[encoder encodeObject:pageImageData forKey:@"pageImageData"];
 
-	[encoder encodeObject:resourceError forKey:@"resourceError"];
+	[encoder encodeObject:resourceErrorString forKey:@"resourceErrorString"];
 
 	[encoder encodeObject:subResources forKey:@"subResources"];
 	[encoder encodeObject:actionsArray forKey:@"actionsArray"];
@@ -86,7 +79,7 @@
 		resourceRepresentation = [[decoder decodeObjectForKey:@"resourceRepresentation"] retain];
 		pageImageData = [[decoder decodeObjectForKey:@"pageImageData"] retain];
 
-		resourceError = [[decoder decodeObjectForKey:@"resourceError"] retain];
+		resourceErrorString = [[decoder decodeObjectForKey:@"resourceErrorString"] retain];
 
 		subResources = [[decoder decodeObjectForKey:@"subResources"] retain];
 		actionsArray = [[decoder decodeObjectForKey:@"actionsArray"] retain];
@@ -122,7 +115,7 @@
 		httpHeaderFieldsDict = [[urlRequest allHTTPHeaderFields] retain];
 		cookiesArray = [[[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:[urlRequest URL] ] retain];
 		
-		resourceError = nil;
+		resourceErrorString = nil;
 		
 		subResources = [[NSMutableArray array] retain];
 		actionsArray = [[NSMutableArray array] retain];
@@ -130,26 +123,7 @@
 	}
 	return self;
 }
-/*
-- (id)initWithResourceURLString:(NSString *)URLString
-{
-	ENTRY( @"[ResourceEvent initWithURL:]" );
-	self = [super init];
-	if (self) {
-		startDate = [[NSDate alloc] init];
-		endDate = nil;
-		resourceData = nil;
-		resourceType = REUndeterminedResourceType;
-		resourceURL = [URLString retain];
-		
-		resourceError = nil;
-		
-		subResources = [[NSMutableArray array] retain];
-		resourceID = resourceIDcount++;
-	}
-	return self;
-}
-*/
+
 #pragma mark processing methods
 
 - (void)resourceCommitted
@@ -163,7 +137,7 @@
 	ENTRY( @"[ResourceEvent finishedLoadingWithError:]" );
 	WARNING( [error localizedDescription] );
 	endDate = [[NSDate alloc] init];
-	resourceError = [error retain];
+	resourceErrorString = [[error localizedDescription] retain];
 }
 
 - (void)finishedLoadingWithDataSource:(WebDataSource *)dataSource
@@ -192,7 +166,7 @@
 		resourceType = REImageResourceType;
 	}
 	
-	resourceData = [[[resourceResponse URL] resourceDataUsingCache:YES] retain];
+	resourceData = [[NSData dataWithContentsOfURL:[resourceResponse URL]] retain];
 }
 
 - (void)setPageImageData:(NSData *)data
@@ -212,6 +186,7 @@
 
 - (void)addActionDictionary:(NSDictionary *)actionDict
 {
+	ENTRY( @"addActionDictionary:" );
 	[actionsArray addObject:actionDict];
 }
 
@@ -224,6 +199,24 @@
 	}
 	resourceTitle = [title retain];
 	resourceType = REPageReourceType;
+}
+
+#pragma mark meta-accessor methods
+
+- (NSArray *)allActionsArray
+{
+	NSMutableArray *tempArray;
+	
+	tempArray = [actionsArray mutableCopy];
+
+	ResourceEvent *re;
+	NSEnumerator *en = [subResources objectEnumerator];
+	while ( re = [en nextObject] ) {
+		[tempArray addObjectsFromArray:[re valueForKeyPath:@"actionsArray"] ];
+	}
+
+	
+	return [tempArray copy];
 }
 
 #pragma mark value methods
@@ -380,7 +373,7 @@
 
 - (NSString *)error
 {
-	return [resourceError localizedDescription];
+	return resourceErrorString;
 }
 
 - (unsigned int)ID

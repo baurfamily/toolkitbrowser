@@ -47,8 +47,9 @@
 	
 	//ResourceEvent *currentPage;
 	NSMutableDictionary *framesDict;
+	NSMutableDictionary *requestsDict;
 	
-	ResourceEvent *selectedPage;
+	ResourceEvent *selectedItem;
 }
 - (IBAction)go:(id)sender;
 - (void)loadURL:(NSURLRequest *)urlRequest;
