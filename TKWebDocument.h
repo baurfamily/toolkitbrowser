@@ -30,6 +30,7 @@
 	IBOutlet NSProgressIndicator *progressBar;
 	
 	IBOutlet NSArrayController *pagesArrayController;
+	IBOutlet NSArrayController *resourcesArrayController;
 	IBOutlet NSArrayController *activityArrayController;
 	IBOutlet NSArrayController *exclusionsArrayController;
 	IBOutlet NSArrayController *actionsArrayController;
@@ -46,6 +47,8 @@
 	
 	//ResourceEvent *currentPage;
 	NSMutableDictionary *framesDict;
+	
+	ResourceEvent *selectedPage;
 }
 - (IBAction)go:(id)sender;
 - (void)loadURL:(NSURLRequest *)urlRequest;
