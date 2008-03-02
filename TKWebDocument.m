@@ -53,11 +53,14 @@
 
 - (void)awakeFromNib
 {
+	
 	[webView setGroupName:@"TKWebDocument"];
-	if ([pageArray count])
+	if ([pageArray count]) {
 		[pagesArrayController addObjects:pageArray];
-	else 
-		[self go:self];
+		[startingPageField setStringValue:[[pageArray objectAtIndex:[pageArray count]-1] documentURLString] ];
+	} else {
+		[startingPageField setStringValue:@"http://"];
+	}
 }
 
 - (id)init
@@ -68,7 +71,6 @@
 		resourceArray = [[NSMutableArray alloc] init];
 		framesDict = [[NSMutableDictionary alloc] init];
 		requestsDict = [[NSMutableDictionary alloc] init];
-		//actionsArray = [[NSMutableArray alloc] init];
 	}
 	return self;
 }
@@ -155,6 +157,7 @@
 
 - (void)webView:(WebView *)sender didStartProvisionalLoadForFrame:(WebFrame *)frame
 {
+	[statusField setStringValue:@""];
 	ResourceEvent *currentPage = [framesDict objectForKey:[frame description]];
 	
 	if ( currentPage && ![currentPage isDoneLoading] ) {
