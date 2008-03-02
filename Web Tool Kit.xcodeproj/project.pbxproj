@@ -54,7 +54,7 @@
 		3FEF72FA082595B40046E5D3 /* Release Notes.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "Release Notes.rtf"; sourceTree = "<group>"; };
 		3FF4C11B07CAE41C00CD8DAB /* NSURLRequest-Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLRequest-Category.m"; sourceTree = "<group>"; };
 		8D15AC360486D014006FF6A4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		8D15AC370486D014006FF6A4 /* Web Tool Kit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Web Tool Kit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D15AC370486D014006FF6A4 /* Tool Kit Browser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tool Kit Browser.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +91,7 @@
 		19C28FB0FE9D524F11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D15AC370486D014006FF6A4 /* Web Tool Kit.app */,
+				8D15AC370486D014006FF6A4 /* Tool Kit Browser.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -193,7 +193,7 @@
 			name = "Web Tool Kit";
 			productInstallPath = "$(HOME)/Applications";
 			productName = "Web Timer";
-			productReference = 8D15AC370486D014006FF6A4 /* Web Tool Kit.app */;
+			productReference = 8D15AC370486D014006FF6A4 /* Tool Kit Browser.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -290,7 +290,6 @@
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)";
-				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "~/Documents/Web\\ Tool\\ Kit";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
@@ -300,9 +299,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = "$(LIBRARY_SEARCH_PATHS_QUOTED_1)";
-				LIBRARY_SEARCH_PATHS_QUOTED_1 = "~/Documents/Web\\ Tool\\ Kit";
-				PRODUCT_NAME = "Web Tool Kit";
-				USER_HEADER_SEARCH_PATHS = "~/Documents/Web\\ Tool\\ Kit";
+				PRODUCT_NAME = "Tool Kit Browser";
 				WRAPPER_EXTENSION = app;
 				ZERO_LINK = YES;
 			};
@@ -313,7 +310,6 @@
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)";
-				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "~/Documents/Web\\ Tool\\ Kit";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -321,9 +317,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = "$(LIBRARY_SEARCH_PATHS_QUOTED_1)";
-				LIBRARY_SEARCH_PATHS_QUOTED_1 = "~/Documents/Web\\ Tool\\ Kit";
-				PRODUCT_NAME = "Web Tool Kit";
-				USER_HEADER_SEARCH_PATHS = "~/Documents/Web\\ Tool\\ Kit";
+				PRODUCT_NAME = "Tool Kit Browser";
 				WRAPPER_EXTENSION = app;
 				ZERO_LINK = NO;
 			};
@@ -333,16 +327,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = "$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)";
-				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "~/Documents/Web\\ Tool\\ Kit";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Web Tool Kit_Prefix.pch";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = "$(LIBRARY_SEARCH_PATHS_QUOTED_1)";
-				LIBRARY_SEARCH_PATHS_QUOTED_1 = "~/Documents/Web\\ Tool\\ Kit";
-				PRODUCT_NAME = "Web Tool Kit";
-				USER_HEADER_SEARCH_PATHS = "~/Documents/Web\\ Tool\\ Kit";
+				PRODUCT_NAME = "Tool Kit Browser";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Default;
