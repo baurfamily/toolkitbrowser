@@ -1,0 +1,3 @@
+The Tool Kit Browser (aka: Web Tool Kit) is a [WebKit](http://webkit.org/) based browser (like Safari) that tracks information regarding the pages visited.  It tracks all resources loaded and the time associated with the load.  It can track what actions a user took (what links were clicked and information about the forms submitted) and records the cookies supplied to the server.
+
+This browser is not meant for general browsing, but for troubleshooting web pages and [WebKit](http://webkit.org/) behavior on sites.
